@@ -1,0 +1,59 @@
+body {
+    background-color: #ffffffe0;
+}
+
+.gameButton {
+    padding: 30px;
+    margin: 30px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.numberOfRounds {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#entry {
+    width: 40px;
+    font-size: 12px;
+}
+
+#submit {
+    width: 67px;
+    background: #c2bfbf;
+}
+
+.gameplay {
+    border: solid 1px black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+}
+.results {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 10px;
+}
+#plays{
+    width: 250px;
+    border: 1px solid blue;
+}
+#log{
+    width: 250px;
+    border: 1px solid red;
+}
+#score{
+    width: 250px;
+    border: 1px solid orange;
+}
+.restart{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -1,93 +1,41 @@
 <!doctype html>
 <html>
+
 <head>
-<title>Rock, Paper, Scissors</title>
+    <title>Rock, Paper, Scissors</title>
+    <link href="./style.css" type="text/css" rel="stylesheet">
 </head>
+
 <body>
-<script>
-
-let userName = prompt('Please enter your name');
-let numberOfRounds = prompt('How many rounds would you like to play?')
-function computerPlay(){
-    let Selection = ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)]
-    console.log ('Computer played ' + Selection)
-    return (Selection)
-}
-function getUserInput(){
-    let playerSelection = prompt('Enter rock, paper or scissors to begin')
-    return (playerSelection.toLowerCase())
-}
-function playRound(){
-    const playerSelection = getUserInput();
-    const computerSelection = computerPlay();
-    if ((playerSelection == computerSelection)){
-        console.log ('Draw! Please try again.')
-        //alert (`DRAW! Computer played ${computerSelection}, ${userName} played ${playerSelection}.`)
-        return ('draw');
-    }
-    else if (playerSelection == 'rock' && computerSelection == 'paper'){
-        console.log ('You lose! Paper covers rock.')
-        //alert (`Computer Wins. Computer played ${computerSelection}, ${userName} played ${playerSelection}`)
-        return ('computerWin');
-    }
-    else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        console.log ('You win! Rock crushes scissors')
-        //alert (`${userName} WINS!!! Computer played ${computerSelection}, ${userName} played ${playerSelection}`)
-        return ('userWin');
-    }
-    else if (playerSelection == 'paper' && computerSelection == 'rock'){
-        console.log ('You Win! Paper Covers rock.')
-        //alert (`${userName} WINS!!!Computer played ${computerSelection}, ${userName} played ${playerSelection}`)
-        return ('userWin');
-    }
-    else if (playerSelection == 'paper' && computerSelection == 'scissors'){
-        console.log ('You lose! Scissors cut paper.')
-        //alert (`Computer wins. Computer played ${computerSelection}, ${userName} played ${playerSelection}`)
-        return ('computerWin');
-    }
-    else if (playerSelection == 'scissors' && computerSelection == 'rock'){
-        console.log ('You lose! Rock crushes scissors.')
-        //alert (`Computer wins. Computer played ${computerSelection}, ${userName} played ${playerSelection}`)
-        return ('computerWin');
-    }
-    else if (playerSelection == 'scissors' && computerSelection == 'paper'){
-        console.log ('You win! Scissors cut paper.')
-        //alert (`${userName} Wins!!! Computer played ${computerSelection}, ${userName} played ${playerSelection}`)
-        return ('userWin');
-    }
-    }
-
-function game() {
-    let userScore = 0;
-    let computerScore = 0; 
-        for (let i = 0; (userScore + computerScore) < numberOfRounds; i++) {
-            let gameResult = playRound();
-        if (gameResult == "userWin") {
-            ++userScore
-            console.log (`Score is: ${userName}: ${userScore} to Computer: ${computerScore}`);
-        } else if (gameResult == "computerWin") {
-            ++computerScore
-            console.log (`Score is: ${userName}: ${userScore} to Computer: ${computerScore}`);
-        }
-    }
-    determineWinner(userScore, computerScore);
-    }
-function determineWinner(userScore, computerScore){
-    if (userScore > computerScore){
-        console.log (`${userName} wins! ${userName} scored ${userScore} points, computer scored ${computerScore} points.`);
-    }
-    else if (userScore < computerScore){
-        console.log (`Computer wins. Computer scored ${computerScore} points, ${userName} scored ${userScore} points.`);
-    }
-    else {
-        console.log (`The game is tied`)
-    }
-    }
-
-game();
-
-</script>
+    <h1>Rock - Paper - Scissors</h1>
+    <h3>Please enter how many rounds you would like to play.</h3>
+    <input id="entry" placeholder="rounds">
+    <button id="submit">Submit</button>
+    <div class="gameplay">
+        <button class="gameButton" id="rock">Rock</button>
+        <button class="gameButton" id="paper">Paper</button>
+        <button class="gameButton" id="scissors">Scissors</button>
+        <br>
+        <br>
+    </div>
+    <div class='restart'>
+        <button id="restart">Restart</button>
+    </div>
+    <div class="results">
+        <div>
+            <ul id="plays"></ul>
+        </div>
+        <div>
+            <ul id="log"> </ul>
+        </div>
+        <div>
+            <ul id="score"></ul>
+        </div>
+    </div>
 
 
+    <script src="./script.js">
+    </script>
 </body>
+
 </html>
