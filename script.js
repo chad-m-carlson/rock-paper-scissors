@@ -4,6 +4,8 @@ var computerSelection;
 var playerSelection;
 let userScore = 0;
 let computerScore = 0;
+let userWin = 0;
+let computerWin = 0;
 const buttons = document.querySelectorAll('.gameButton');
 const submitButton = document.querySelector('#submit');
 const restart = document.querySelector('#restart');
@@ -13,16 +15,18 @@ const score = document.querySelector('#score');
 const plays = document.querySelector('#plays');
 
 
-
 submitButton.addEventListener('click', (e) => {
     numberOfRounds = document.getElementById('entry').value;
     return numberOfRounds;
 });
 restart.addEventListener('click', (e) => {
+    numberOfRounds = document.getElementById('entry').value;
     enableButton();
+    return numberOfRounds;
 });
 buttons.forEach((gameButton) => {
     gameButton.addEventListener('click', (e) => {
+        console.log(e);
         if (numberOfRounds == undefined) {
             alert('Please enter number of rounds');
         } else {
@@ -100,9 +104,6 @@ function enableButton() {
     }
     while (log.hasChildNodes()) {
         log.removeChild(log.firstChild);
-    }
-    while (score.hasChildNodes()) {
-        score.removeChild(score.firstChild);
     }
 }
 

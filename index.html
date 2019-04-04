@@ -9,8 +9,10 @@
 <body>
     <h1>Rock - Paper - Scissors</h1>
     <h3>Please enter how many rounds you would like to play.</h3>
-    <input id="entry" placeholder="rounds">
-    <button id="submit">Submit</button>
+    <div class="start">
+        <input id="entry" placeholder="rounds">    
+        <button id="submit">Play</button>
+    </div>
     <div class="gameplay">
         <button class="gameButton" id="rock">Rock</button>
         <button class="gameButton" id="paper">Paper</button>
@@ -23,13 +25,25 @@
     </div>
     <div class="results">
         <div>
-            <ul id="plays"></ul>
+            <h3>Computer Plays</h3>
+            <ul id="plays">
+            </ul>
         </div>
         <div>
-            <ul id="log"> </ul>
+            <h3>Round Results</h3>
+            <ul id="log">
+            </ul>
         </div>
         <div>
-            <ul id="score"></ul>
+            <h3>Game Score</h3>
+            <ol id="score">
+            </ol>
+        </div>
+        <div>
+            <!-- <div class="tally">
+                <h3 class="players" id="computer">Computer: 0</h3>
+                <h3 class="players" id="user">User: 0</h3>
+            </div> -->
         </div>
     </div>
 

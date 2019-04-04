@@ -1,5 +1,14 @@
 body {
-    background-color: #ffffffe0;
+    background-color: #fafafa;
+}
+h1, h3, input {
+    text-align: center;
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .gameButton {
@@ -22,6 +31,8 @@ body {
 #submit {
     width: 67px;
     background: #c2bfbf;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 .gameplay {
@@ -42,18 +53,33 @@ body {
 }
 #plays{
     width: 250px;
-    border: 1px solid blue;
+    list-style: square;
 }
 #log{
     width: 250px;
-    border: 1px solid red;
+    list-style: square;
 }
 #score{
     width: 250px;
-    border: 1px solid orange;
 }
 .restart{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+h3{
+    margin-left: 40px;
+}
+li {
+    line-height: 1.2em;
+}
+.tally {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;;
+    margin: 0px 0px 0px 20px;
+}
+.players{
+    margin: 2px 5px 0px 0px;
 }
