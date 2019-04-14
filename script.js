@@ -46,20 +46,16 @@ function playRound() {
     const playerSelection = playerClicked;
     const computerSelection = computerPlay();
     if ((playerSelection == computerSelection)) {
-        compPlay();
         draw();
-        checkResults();
     } else if (playerSelection == 'rock' && computerSelection == 'paper' || playerSelection == 'scissors' && computerSelection == 'rock' || playerSelection == 'paper' && computerSelection == 'scissors') {
-        compPlay();
         computerScore++;
         computerGame();
-        checkResults();
     } else if (playerSelection == 'rock' && computerSelection == 'scissors' || playerSelection == 'paper' && computerSelection == 'rock' || playerSelection == 'scissors' && computerSelection == 'paper') {
-        compPlay();
         userScore++;
         playerGame();
-        checkResults();
     }
+    compPlay();
+    checkResults();
 }
 
 function checkResults() {
