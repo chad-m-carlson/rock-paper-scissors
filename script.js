@@ -69,26 +69,30 @@ function checkResults() {
             const t = document.createTextNode(`You win! ${userScore} to ${computerScore}.`);
             li.appendChild(t);
             score.appendChild(li);
-            resetGame();
-            disableButton();
+            userWin += 1;
         } else if (computerScore > userScore) {
             const li = document.createElement('li');
             const t = document.createTextNode(`You lose! ${computerScore} to ${userScore}`);
             li.appendChild(t);
             score.appendChild(li);
-            resetGame();
-            disableButton();
+            computerWin += 1;
         } else {
             const li = document.createElement('li');
             const t = document.createTextNode(`It's a tie! Please play again!`);
             li.appendChild(t);
             score.appendChild(li);
-            resetGame();
-            disableButton();
         }
+        resetGame();
+        disableButton();
+        calculateScores();
     }
 }
-
+function calculateScores(){
+    var computer = document.getElementById('computer');
+    var user = document.getElementById('user');
+    computer.innerHTML = `Computer Score: ${computerWin}`;
+    user.innerHTML = `Player Score: ${userWin}`;
+}
 function disableButton() {
     document.getElementById('rock').disabled = true;
     document.getElementById('paper').disabled = true;
