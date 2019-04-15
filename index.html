@@ -8,9 +8,13 @@
 
 <body>
     <h1>Rock - Paper - Scissors</h1>
-    <h3>Please enter how many rounds you would like to play.</h3>
+    <div class="hide tally">
+        <h3 class="players" id="computer"></h3>
+        <h3 class="players" id="user"></h3>
+    </div>
     <div class="start">
-        <input id="entry" placeholder="rounds">    
+        <h3>Please enter how many rounds you would like to play.</h3>
+        <input id="entry" placeholder="rounds">
         <button id="submit">Play</button>
     </div>
     <div class="gameplay">
@@ -24,26 +28,20 @@
         <button id="restart">Restart</button>
     </div>
     <div class="results">
-        <div>
+        <div class="resultBox">
             <h3>Computer Plays</h3>
-            <ul id="plays">
-            </ul>
+            <dl id="plays">
+            </dl>
         </div>
-        <div>
+        <div class="resultBox">
             <h3>Round Results</h3>
-            <ul id="log">
-            </ul>
+            <dl id="log">
+            </dl>
         </div>
-        <div>
+        <div class="resultBox">
             <h3>Game Score</h3>
             <ol id="score">
             </ol>
-        </div>
-        <div>
-            <div class="tally">
-                <h3 class="players" id="computer"></h3>
-                <h3 class="players" id="user"></h3>
-            </div>
         </div>
     </div>
 
