@@ -13,10 +13,17 @@
         <h3 class="players" id="user"></h3>
     </div>
     <div class="start">
-        <h3>Please enter how many rounds you would like to play.</h3>
-        <input id="entry" placeholder="rounds">
-        <button id="submit">Play</button>
+        <div class="entry">
+            <h3>How many games per round?</h3>
+            <input id="games" placeholder="games">
+            <!-- <button id="submit">Submit</button> -->
+        </div>
+        <div class="entry">
+            <h3>How many rounds?</h3>
+            <input id="rounds" placeholder="rounds">
+        </div>
     </div>
+    <button id="play">Play</button>
     <div class="gameplay">
         <button class="gameButton" id="rock">Rock</button>
         <button class="gameButton" id="paper">Paper</button>
@@ -29,17 +36,17 @@
     </div>
     <div class="results">
         <div class="resultBox">
-            <h3>Computer Plays</h3>
+            <h4>Computer Plays</h4>
             <dl id="plays">
             </dl>
         </div>
         <div class="resultBox">
-            <h3>Round Results</h3>
+            <h4>Round Results</h4>
             <dl id="log">
             </dl>
         </div>
         <div class="resultBox">
-            <h3>Game Score</h3>
+            <h4>Game Score</h4>
             <ol id="score">
             </ol>
         </div>

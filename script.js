@@ -1,52 +1,47 @@
-var numberOfRounds;
-var playerClicked;
 let userScore = 0;
 let computerScore = 0;
 let userWins = 0;
 let computerWins = 0;
 const buttons = document.querySelectorAll('.gameButton');
-const submitButton = document.querySelector('#submit');
+const playButton = document.getElementById('play');
 const restart = document.querySelector('#restart');
 const log = document.querySelector('#log');
 const score = document.querySelector('#score');
 const plays = document.querySelector('#plays');
-const start = document.querySelector('.start');
-const tally = document.querySelector('.tally');
 const computer = document.getElementById('computer');
 const user = document.getElementById('user');
 
+buttons.forEach((gamebutton) => gamebutton.disabled = true);
 
-submitButton.addEventListener('click', (e) => {
-    numberOfRounds = document.getElementById('entry').value;
-    hideThings();
-    return numberOfRounds;
+playButton.addEventListener('click', (e) => {
+    if (document.getElementById('rounds').value == '' || document.getElementById('games').value == '') alert('Please enter number of games and rounds');
+    else {
+        buttons.forEach((gamebutton) => gamebutton.disabled = false);
+        hideInputs();
+    }
 });
 restart.addEventListener('click', (e) => {
     restartClicked();
 });
 buttons.forEach((gameButton) => {
     gameButton.addEventListener('click', (e) => {
-        console.log(e);
-        if (numberOfRounds == undefined) {
-            alert('Please enter number of rounds');
-        } else {
-            playerClicked = e.path[0].id;
-            playRound();
-            return playerClicked;
-        }
+        playerClicked = e.path[0].id;
+        playRound(playerClicked);
     });
 });
 
-function hideThings() {
+function hideInputs() {
+    const tally = document.querySelector('.tally');
+    const start = document.querySelector('.start');
     start.classList.toggle('hide');
     tally.classList.toggle('hide');
 }
+
 function restartClicked() {
-    enableButton();
-    hideThings();
+    buttons.forEach((gamebutton)=> gamebutton.disabled = true);
+    hideInputs();
     resetGame();
     removeLogItems();
-    numberOfRounds = undefined;
     user.removeChild(user.firstChild);
     computer.removeChild(computer.firstChild);
     userWins = 0;
@@ -58,9 +53,8 @@ function computerPlay() {
     return computerChoice;
 }
 
-function playRound() {
-    numberOfRounds = document.getElementById('entry').value;
-    const playerSelection = playerClicked;
+function playRound(playerSelection) {
+    numberOfGames = document.getElementById('games').value;
     const computerSelection = computerPlay();
     if ((playerSelection == computerSelection)) {
         draw();
@@ -76,7 +70,7 @@ function playRound() {
 }
 
 function checkResults() {
-    if (userScore + computerScore == numberOfRounds) {
+    if (userScore + computerScore == numberOfGames) {
         if (userScore > computerScore) {
             const dd = document.createElement('dd');
             dd.innerHTML = `You win! ${userScore} to ${computerScore}.`;
@@ -94,19 +88,26 @@ function checkResults() {
         }
         resetGame();
         disableButton();
-        calculateScores();
+        writeScores();
+        setTimeout(function() { rounds();}, 2000);
     }
 }
 
-function calculateScores() {
+function writeScores() {
     computer.innerHTML = `Computer Score: ${computerWins}`;
     user.innerHTML = `Player Score: ${userWins}`;
 }
 
+function rounds() {
+    const numberOfRounds = document.getElementById('rounds').value;
+    if (computerWins + userWins == numberOfRounds) {
+        if (computerWins > userWins) alert('Game Over! Computer wins the game');
+        else alert('Congratulations! You win the game');
+    }
+}
+
 function disableButton() {
-    buttons.forEach((gameButton) => {
-        gameButton.disabled = true;
-    });
+    buttons.forEach((gameButton) => gameButton.disabled = true);
     setTimeout(function () {
         enableButton();
         removeLogItems();
@@ -126,7 +127,7 @@ function removeLogItems() {
     while (log.hasChildNodes()) {
         log.removeChild(log.firstChild);
     }
-    while (score.hasChildNodes()){
+    while (score.hasChildNodes()) {
         score.removeChild(score.firstChild);
     }
 }
