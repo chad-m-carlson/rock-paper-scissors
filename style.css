@@ -3,7 +3,7 @@ body {
     display: flex;
     flex-direction: column;
 }
-h1, h3, input {
+h1, h2,h3, input {
     text-align: center;
 }
 button {
@@ -26,7 +26,7 @@ input {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: 130px;
+    height: 160px;
 }
 .entry {
     display: flex;
@@ -117,7 +117,7 @@ li {
     line-height: 1.2em;
 }
 .tally {
-    height: 130px;
+    height: 270px;
     display: inline-block;
 }
 .players{
