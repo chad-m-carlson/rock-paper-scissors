@@ -148,7 +148,7 @@ function removeLogItems() {
 }
 
 function gameResults(winner) {
-    if (winner == 'tie') {
+    if (winner == 'draw') {
         const dd = document.createElement('dd');
         dd.innerHTML = `It's a tie, you both played ${playerClicked}.`;
         log.appendChild(dd);
